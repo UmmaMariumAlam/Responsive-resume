@@ -1,119 +1,1005 @@
 <!DOCTYPE html>
-<html lang = "en">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale = 1.0">
-    <title>Personal Portfolio Website</title>
-    <!--external css-->
-    <link rel = "stylesheet" href="styles.css">
-    <!--font awesome cdn for font icons-->
-    <link rel = "stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Umma Marium Alam — Full Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #0B1424;
+            --navy2: #111D2E;
+            --navy3: #1A2A40;
+            --coral: #FF6B6B;
+            --coral2: #FF8E8E;
+            --white: #F4F7FA;
+            --muted: #8BA0B8;
+            --green: #4ECDC4;
+            --gold: #FFD166;
+            --shadow: 0 12px 48px rgba(0, 0, 0, 0.6);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--navy);
+            color: var(--white);
+            min-height: 100vh;
+            padding: 30px;
+            background-image: radial-gradient(circle at 20% 30%, rgba(255, 107, 107, 0.05) 0%, transparent 50%);
+        }
+
+        .container {
+            max-width: 1150px;
+            width: 100%;
+            margin: 0 auto;
+            background: rgba(17, 29, 46, 0.7);
+            backdrop-filter: blur(12px);
+            border-radius: 32px;
+            box-shadow: var(--shadow);
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        /* ===== SIDEBAR ===== */
+        .profile-card {
+            background: rgba(26, 42, 64, 0.6);
+            backdrop-filter: blur(4px);
+            padding: 40px 28px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            border-right: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .profile-pic {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 3px solid var(--coral);
+            overflow: hidden;
+            margin-bottom: 22px;
+            flex-shrink: 0;
+            box-shadow: 0 0 30px rgba(255, 107, 107, 0.15);
+        }
+
+        .profile-pic img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .intro h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            background: linear-gradient(to right, #fff, var(--coral2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 4px;
+        }
+
+        .intro h4 {
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--muted);
+            margin-bottom: 16px;
+            letter-spacing: 0.5px;
+        }
+        .intro h4 span {
+            color: var(--coral);
+        }
+
+        .social {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            margin-bottom: 28px;
+        }
+
+        .social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.04);
+            transition: 0.3s;
+            font-size: 18px;
+            text-decoration: none;
+            border: 1px solid transparent;
+        }
+
+        .social a:hover {
+            background: var(--coral);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(255, 107, 107, 0.3);
+            border-color: var(--coral);
+        }
+        .social a:hover i {
+            color: var(--navy) !important;
+        }
+
+        .contact-info {
+            width: 100%;
+            text-align: left;
+            margin-bottom: 28px;
+        }
+
+        .contact-info .row {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        }
+        .contact-info .row:last-child {
+            border-bottom: none;
+        }
+
+        .contact-info .icon {
+            width: 32px;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .contact-info .content span {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--muted);
+            font-weight: 600;
+        }
+
+        .contact-info .content h5 {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--white);
+        }
+
+        .download-btn {
+            background: linear-gradient(135deg, var(--coral), #e55a5a);
+            color: var(--navy);
+            border: none;
+            padding: 14px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-family: 'Inter', sans-serif;
+            width: 100%;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.25);
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
+            filter: brightness(1.1);
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        .about {
+            padding: 44px 44px 44px;
+            overflow-y: auto;
+        }
+
+        .about h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        .about h1 .highlight {
+            color: var(--coral);
+        }
+        .about h1::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--coral), transparent);
+            margin-top: 8px;
+            border-radius: 4px;
+        }
+
+        .about .bio {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #B8CCE0;
+            margin-bottom: 16px;
+            font-weight: 300;
+        }
+        .about .bio strong {
+            color: var(--coral);
+            font-weight: 500;
+        }
+        .about .bio .gold-text {
+            color: var(--gold);
+            font-weight: 500;
+        }
+
+        /* ===== SECTION TITLES ===== */
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            margin: 40px 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--white);
+        }
+        .section-title i {
+            color: var(--coral);
+            font-size: 24px;
+        }
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(255,107,107,0.3), transparent);
+        }
+
+        /* ===== EXPERTISE GRID ===== */
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 10px;
+        }
+
+        .workbox {
+            background: rgba(26, 42, 64, 0.5);
+            backdrop-filter: blur(4px);
+            padding: 22px 18px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            transition: 0.35s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .workbox::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--coral);
+            border-radius: 0 4px 4px 0;
+        }
+        .workbox:nth-child(2)::before {
+            background: var(--green);
+        }
+        .workbox:nth-child(3)::before {
+            background: var(--gold);
+        }
+
+        .workbox:hover {
+            transform: translateY(-6px);
+            border-color: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .workbox .icon {
+            font-size: 28px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .workbox h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 6px;
+        }
+
+        .workbox p {
+            font-size: 13px;
+            line-height: 1.6;
+            color: var(--muted);
+        }
+        .workbox .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 10px;
+        }
+        .workbox .tags span {
+            font-size: 10px;
+            font-weight: 600;
+            background: rgba(255,255,255,0.06);
+            padding: 3px 10px;
+            border-radius: 20px;
+            color: var(--muted);
+            border: 1px solid rgba(255,255,255,0.04);
+        }
+
+        /* ===== PROJECT CARDS ===== */
+        .project-item {
+            background: rgba(26, 42, 64, 0.3);
+            backdrop-filter: blur(8px);
+            padding: 20px 24px;
+            border-radius: 16px;
+            margin-bottom: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: 0.35s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-item:hover {
+            border-color: var(--coral);
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.4);
+            background: rgba(26, 42, 64, 0.6);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 6px;
+        }
+
+        .project-header h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        .project-header .tag {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            padding: 4px 14px;
+            border-radius: 50px;
+            background: rgba(255, 107, 107, 0.12);
+            color: var(--coral);
+            border: 1px solid rgba(255, 107, 107, 0.2);
+            white-space: nowrap;
+        }
+        .project-header .tag.green {
+            background: rgba(78, 205, 196, 0.12);
+            color: var(--green);
+            border-color: rgba(78, 205, 196, 0.2);
+        }
+        .project-header .tag.gold {
+            background: rgba(255, 209, 102, 0.12);
+            color: var(--gold);
+            border-color: rgba(255, 209, 102, 0.2);
+        }
+        .project-header .tag.purple {
+            background: rgba(160, 120, 255, 0.12);
+            color: #A078FF;
+            border-color: rgba(160, 120, 255, 0.2);
+        }
+
+        .project-tech {
+            font-size: 13px;
+            color: var(--muted);
+            margin-bottom: 10px;
+            font-weight: 400;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .project-tech i {
+            font-size: 12px;
+            color: var(--coral);
+        }
+
+        .project-item ul {
+            list-style: none;
+            padding-left: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .project-item ul li {
+            font-size: 14px;
+            color: #B0C4D8;
+            line-height: 1.6;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .project-item ul li::before {
+            content: '◆';
+            position: absolute;
+            left: 0;
+            color: var(--coral);
+            font-size: 10px;
+            top: 3px;
+        }
+
+        .project-item ul li strong {
+            color: var(--white);
+            font-weight: 500;
+        }
+        .project-item ul li .highlight-coral {
+            color: var(--coral2);
+        }
+        .project-item ul li .highlight-green {
+            color: var(--green);
+        }
+        .project-item ul li .highlight-gold {
+            color: var(--gold);
+        }
+
+        .project-item a {
+            color: var(--coral2);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .project-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== THESIS HIGHLIGHT CARD ===== */
+        .thesis-card {
+            background: rgba(255, 107, 107, 0.04);
+            border: 1px solid var(--coral);
+            border-left: 6px solid var(--coral);
+            border-radius: 16px;
+            padding: 24px 28px;
+            margin-bottom: 10px;
+        }
+        .thesis-card .thesis-badge {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            background: var(--coral);
+            color: var(--navy);
+            padding: 4px 14px;
+            border-radius: 30px;
+            margin-bottom: 10px;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .thesis-card h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+        .thesis-card p {
+            font-size: 14px;
+            line-height: 1.7;
+            color: #B0C4D8;
+            margin-bottom: 14px;
+        }
+        .metrics-row {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+        .metric {
+            text-align: center;
+        }
+        .metric-val {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            display: block;
+        }
+        .metric-val.coral { color: var(--coral); }
+        .metric-val.green { color: var(--green); }
+        .metric-val.gold { color: var(--gold); }
+        .metric-val.white { color: var(--white); }
+        .metric-label {
+            font-size: 9px;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-weight: 600;
+        }
+
+        /* ===== TWO-COLUMN GRID FOR CLUBS/AWARDS ===== */
+        .two-col-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        .info-card {
+            background: rgba(26, 42, 64, 0.3);
+            padding: 16px 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            transition: 0.3s;
+        }
+        .info-card:hover {
+            border-color: rgba(255, 107, 107, 0.3);
+            background: rgba(26, 42, 64, 0.6);
+        }
+        .info-card h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 15px;
+            color: var(--white);
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .info-card h4 i {
+            color: var(--coral);
+            font-size: 14px;
+        }
+        .info-card .meta {
+            font-size: 12px;
+            color: var(--muted);
+            margin-bottom: 6px;
+        }
+        .info-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .info-card ul li {
+            font-size: 13px;
+            color: #B0C4D8;
+            line-height: 1.6;
+            padding-left: 16px;
+            position: relative;
+        }
+        .info-card ul li::before {
+            content: '▪';
+            position: absolute;
+            left: 0;
+            color: var(--coral);
+        }
+
+        /* ===== HOBBIES / INTERESTS TAGS ===== */
+        .hobby-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .hobby-tags span {
+            background: rgba(255, 255, 255, 0.04);
+            padding: 8px 18px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            font-size: 13px;
+            color: var(--muted);
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .hobby-tags span:hover {
+            border-color: var(--coral);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+        .hobby-tags span i {
+            color: var(--coral);
+            font-size: 14px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 900px) {
+            .container {
+                grid-template-columns: 1fr;
+                border-radius: 24px;
+            }
+            .profile-card {
+                border-right: none;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+                padding: 32px 20px;
+            }
+            .about {
+                padding: 28px 20px;
+            }
+            .work-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .two-col-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 550px) {
+            body {
+                padding: 12px;
+            }
+            .work-grid {
+                grid-template-columns: 1fr;
+            }
+            .profile-pic {
+                width: 120px;
+                height: 120px;
+            }
+            .about h1 {
+                font-size: 22px;
+            }
+            .project-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .metrics-row {
+                gap: 12px;
+            }
+        }
+    </style>
 </head>
 <body>
+
     <main class="container">
+
+        <!-- ======== SIDEBAR ======== -->
         <div class="profile-card">
             <figure class="profile-pic">
-                <img src="profile_images/profile_latestEdit.PNG" alt="user profile pic">
+                <img src="profile_images/profile_img.JPG" alt="Umma Marium Alam">
             </figure>
 
-            <div class="profile-details">
-                <div class="intro">
-                    <h2>Umma Marium Alam</h1>
-                    <h4>Web Developer and Designer</h2>
-                    <media class="social">
-                        <a href="https://www.facebook.com/marium.alam.129" target="_blank"><i class="fab fa-facebook" style="color:#1877F2"></i></a>
-                        <a href="https://www.linkedin.com/in/umma-marium-alam-034339338" target="_blank"><i class="fab fa-linkedin" style="color:rgb(0, 119, 181)"></i></a>
-                        <a href="#" target="_blank"><i class="fab fa-twitter" style="color:var(--skyblue)" ></i></a>
-                        <a href="https://github.com/UmmaMariumAlam" target="_blank"><i class="fab fa-github" style="color:black"></i></a>
-                    </media>
+            <div class="intro">
+                <h2>Umma Marium Alam</h2>
+                <h4>Full-Stack Dev · <span>ML Researcher</span></h4>
+                <div class="social">
+                    <a href="https://www.facebook.com/marium.alam.129" target="_blank"><i class="fab fa-facebook" style="color:#1877F2"></i></a>
+                    <a href="https://www.linkedin.com/in/umma-marium-alam-034339338" target="_blank"><i class="fab fa-linkedin" style="color:rgb(0, 119, 181)"></i></a>
+                  <!--    <a href="#" target="_blank"><i class="fab fa-twitter" style="color:var(--muted)"></i></a> -->
+                    <a href="https://github.com/UmmaMariumAlam" target="_blank"><i class="fab fa-github" style="color:var(--white)"></i></a>
                 </div>
-                
-                <div class="contact-info">
-                    <div class="row">
-                        <div class="icon">
-                            <i class="fa fa-phone" style="color:rgb(32, 154, 32)"></i>
-                        </div>
-                        <div class="content">
-                            <span>Phone</span>
-                            <h5>+1623 506 605</h5>
-                        </div>
-                    </div>
-    
-                    <div class="row">
-                        <div class="icon">
-                            <i class="fa fa-envelope" style="color:rgb(32, 166, 255)"></i>
-                        </div>
-                        <div class="content">
-                            <span>Email</span>
-                            <h5>mariumalam999@gmail.com</h5>
-                        </div>
-                    </div>
-        
-                    <div class="row">
-                        <div class="icon">
-                            <i class="fas fa-map-marker-alt" style="color:rgb(235, 75, 21)"></i>
-                        </div>
-                        <div class="content">
-                            <span>Location</span>
-                            <h5>Dhanmondi, Dhaka</h5>
-                        </div>
-                    </div>
-                </div>
-                <a href="cv.pdf" download="UmmaMariumAlam_CV.pdf">
-                    <button class="download-btn"> <i class="fa fa-download" style="color:rgb(255, 255, 255)"></i> Download CV</button>
-                </a>
             </div>
-            
+
+            <div class="contact-info">
+                <div class="row">
+                    <div class="icon"><i class="fa fa-phone" style="color:rgb(32, 154, 32)"></i></div>
+                    <div class="content">
+                        <span>Phone</span>
+                        <h5>+880 1602-3506605</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="icon"><i class="fa fa-envelope" style="color:rgb(32, 166, 255)"></i></div>
+                    <div class="content">
+                        <span>Email</span>
+                        <h5>mariumalam999@gmail.com</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="icon"><i class="fas fa-map-marker-alt" style="color:rgb(235, 75, 21)"></i></div>
+                    <div class="content">
+                        <span>Location</span>
+                        <h5>Dhanmondi, Dhaka</h5>
+                    </div>
+                </div>
+            </div>
+
+            <a href="cv.pdf" download="UmmaMariumAlam_CV.pdf">
+                <button class="download-btn"><i class="fa fa-download"></i> Download CV</button>
+            </a>
         </div>
 
+        <!-- ======== MAIN CONTENT ======== -->
         <section class="about">
-            <h1>About Me</h1>
-            <p>
-                I 'm a Web Designer and Web Developer from Dhaka, Bangladesh. Currently pursuing a Computer Science and Engineering degree in BRAC University.
-                I enjoy problem-solving tasks. I also enjoy Visual Graphics Designing. Learning new things excites me. I am confident in my cooperative and understanding personality to make collaborative works success.
+
+            <!-- ===== ABOUT ===== -->
+            <h1>About <span class="highlight">Me</span></h1>
+            <p class="bio">
+                I'm a final-year <strong>CSE student at BRAC University (CGPA: 3.71/4.00)</strong> with a genuinely broad skillset — I've built production-quality web apps in Laravel and MERN, completed and defended a thesis on diffusion-based AI with state-of-the-art results, and am currently deepening my ML research through the <strong class="gold-text">GCI World 2026 April program by Japan's Matsuo Lab</strong>.
+            </p>
+            <p class="bio">
+                My aim is to bring forth fun, creative, and impactful projects. I aspire to make a name for myself in Web Development, AI Research, and Software Engineering. Whether the role calls for building, researching, or designing — I show up prepared. I'm also comfortable integrating AI coding assistants — GitHub Copilot, Claude, DeepSeek — into my workflow, using them to accelerate boilerplate and debugging so I can focus my own effort on architecture and logic decisions.
+            </p>
+            <p class="bio">
+                <strong>Currently:</strong> applying to software developer roles, completing the GCI World Apr–Jul 2026 cohort, and exploring new project ideas.
             </p>
 
-            <p >
-                My aim is to bring forth fun and creative websites and projects. I aspire to make a name for myself in Web Development and Software Engineering.  
-            </p>
-            <h2>What I do!!!</h2>
-            <div class="work">
+            <!-- ===== WHAT I DO (CORE FOCUS) ===== -->
+            <h2 class="section-title"><i class="fas fa-cogs"></i> What I Do</h2>
+            <div class="work-grid">
                 <div class="workbox">
-                    <div class="icon">
-                        <img src="profile_images/web.svg">
+                    <span class="icon">🌐</span>
+                    <h3>Software &amp; Web Development</h3>
+                    <p>Full-stack engineering with <strong>React, Laravel, MERN, PHP, MySQL, MongoDB</strong>. Building responsive, production-grade applications from scratch.</p>
+                    <div class="tags"><span>React</span><span>Laravel</span><span>Node.js</span><span>MongoDB</span></div>
+                </div>
+                <div class="workbox">
+                    <span class="icon">🤖</span>
+                    <h3>ML &amp; AI Research</h3>
+                    <p>Specializing in <strong>Diffusion Models, Computer Vision, and Scikit-learn</strong>. Passionate about pushing the boundaries of AI with real-world impact.</p>
+                    <div class="tags"><span>Python</span><span>TensorFlow</span><span>CV</span><span>Scikit-learn</span></div>
+                </div>
+                <div class="workbox">
+                    <span class="icon">🎨</span>
+                    <h3>Design &amp; Creative</h3>
+                    <p>UI/UX prototyping in <strong>Figma</strong>, presentation design in <strong>Canva</strong>, Computer Graphics, and currently learning <strong>Video Editing</strong>.</p>
+                    <div class="tags"><span>Figma</span><span>Canva</span><span>Video Editing</span></div>
+                </div>
+            </div>
+
+            <!-- ===== THESIS (DEDICATED SECTION) ===== -->
+            <h2 class="section-title"><i class="fas fa-flask"></i> Thesis Research</h2>
+            <div class="thesis-card">
+                <span class="thesis-badge">✓ Defended · 2025</span>
+                <h4>Fast-DDIM VTON — Multi-View Diffusion-Based Virtual Try-On</h4>
+                <p>
+                    Proposed a novel framework combining Adaptive Cross-Pose Attention, Partial Multi-View Learning,
+                    Pose-Adaptive Noise Scheduling, Region-Aware Diffusion, and accelerated DDIM sampling.
+                    <strong>First system</strong> to support front/side/back multi-view synthesis for culturally specific
+                    garments — introduced the <strong>Bangladeshi Traditional Dress (BTD)</strong> dataset.
+                    Evaluated on VITON-HD, DressCode, MVG, and BTD benchmarks.
+                </p>
+                <div class="metrics-row">
+                    <div class="metric">
+                        <span class="metric-val coral">0.8834</span>
+                        <span class="metric-label">SSIM ↑</span>
                     </div>
-                    <div class="desc">
-                        <h3>Web Designer</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam euismod volutpat.</p>
+                    <div class="metric">
+                        <span class="metric-val green">0.0987</span>
+                        <span class="metric-label">LPIPS ↓</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-val gold">3.8465</span>
+                        <span class="metric-label">FID ↓</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-val white">4.1375</span>
+                        <span class="metric-label">KID ↓</span>
                     </div>
                 </div>
+            </div>
 
-                <div class="workbox">
-                    <div class="icon">
-                        <img src="profile_images/graphics_design_icon_edit.PNG">
-                    </div>
-                    <div class="desc">
-                        <h3>Visual Graphics Designer</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam euismod volutpat.</p>
-                    </div>
+            <!-- ===== ML PROJECTS (DEDICATED SECTION) ===== -->
+            <h2 class="section-title"><i class="fas fa-robot"></i> Machine Learning Projects</h2>
+
+            <div class="project-item">
+                <div class="project-header">
+                    <h4>Stroke Risk Prediction</h4>
+                    <span class="tag green">2025</span>
                 </div>
-
+                <div class="project-tech"><i class="fas fa-heartbeat"></i> Python · Scikit-learn · TensorFlow · 4,000+ patient dataset</div>
+                <ul>
+                    <li>Compared Logistic Regression, Decision Tree, and Neural Network classifiers.</li>
+                    <li><strong>Logistic Regression: 95.2% accuracy / AUC 0.842</strong> — best overall discrimination.</li>
+                    <li>Analysed class imbalance trade-offs across Accuracy, F1, and AUC-ROC metrics.</li>
+                </ul>
             </div>
-        </section>
-        <section class="contact section" id="contact">
-            <h2 class="section-title">Contact</h2>
 
-            <div class="contact__container bd-grid">
-                <form action="" class="contact__form">
-                    <input type="text" placeholder="Name" class="contact__input">
-                    <input type="mail" placeholder="Email" class="contact__input">
-                    <textarea name="" id="" cols="0" rows="10" class="contact__input"></textarea>
-                    <input type="button" value="Enviar" class="contact__button button">
-                </form>
+            <div class="project-item">
+                <div class="project-header">
+                    <h4>California Housing Price Prediction</h4>
+                    <span class="tag green">2025</span>
+                </div>
+                <div class="project-tech"><i class="fas fa-home"></i> Python · Scikit-learn · Jupyter Notebook · Kaggle Dataset</div>
+                <ul>
+                    <li>Linear Regression R² 0.654 → Random Forest R² <strong>0.767</strong> (+17% improvement).</li>
+                    <li>Applied feature engineering, EDA visualisations, and Grid Search hyperparameter tuning.</li>
+                </ul>
             </div>
+
+            <!-- ===== SOFTWARE / WEB PROJECTS (EXPANDED FOCUS) ===== -->
+            <h2 class="section-title"><i class="fas fa-code"></i> Software &amp; Web Development</h2>
+
+            <div class="project-item">
+                <div class="project-header">
+                    <h4>Notes App</h4>
+                    <span class="tag">2025</span>
+                </div>
+                <div class="project-tech"><i class="fas fa-pen"></i> MERN Stack — MongoDB, Express.js, React.js, Node.js</div>
+                <ul>
+                    <li>Full-stack CRUD notes application with component-based React frontend and Express REST API.</li>
+                    <li>Implemented persistent MongoDB storage and real-time UI state management.</li>
+                </ul>
+            </div>
+
+            <div class="project-item">
+                <div class="project-header">
+                    <h4>Handy Laundry — Online Laundry System</h4>
+                    <span class="tag">2025</span>
+                </div>
+                <div class="project-tech"><i class="fas fa-tshirt"></i> Laravel · PHP · MySQL</div>
+                <ul>
+                    <li>End-to-end booking system with customer flow, order tracking, and admin dashboard.</li>
+                    <li>Role-based access control (customer/staff/admin) via Laravel Auth.</li>
+                    <li>GitHub: <a href="https://github.com/UmmaMariumAlam/Handy-Laundry" target="_blank">UmmaMariumAlam/Handy-Laundry</a></li>
+                </ul>
+            </div>
+
+            <div class="project-item">
+                <div class="project-header">
+                    <h4>MovieCard App</h4>
+                    <span class="tag">2025</span>
+                </div>
+                <div class="project-tech"><i class="fas fa-film"></i> React.js</div>
+                <ul>
+                    <li>React.js movie browsing app with add-movie, favourites, and dynamic card rendering.</li>
+                    <li>Demonstrates React hooks (useState, useEffect), conditional rendering, and component reusability.</li>
+                </ul>
+            </div>
+
+            <div class="project-item">
+                <div class="project-header">
+                    <h4>RS Food Token System</h4>
+                    <span class="tag">2024</span>
+                </div>
+                <div class="project-tech"><i class="fas fa-ticket-alt"></i> PHP · HTML · CSS</div>
+                <ul>
+                    <li>Web-based food token issuance and validation system with token generation, status tracking, and usage reporting.</li>
+                    <li>Responsive UI for multiple user types with clean form flows.</li>
+                </ul>
+            </div>
+
+            <div class="project-item">
+                <div class="project-header">
+                    <h4>Personal Portfolio Website</h4>
+                    <span class="tag">2024</span>
+                </div>
+                <div class="project-tech"><i class="fas fa-globe"></i> HTML · CSS · JavaScript</div>
+                <ul>
+                    <li>Fully responsive portfolio site with sidebar layout, animated transitions, and mobile-first design.</li>
+                    <li>Live: <a href="https://ummamariumalam.github.io/Responsive-resume/" target="_blank">ummamariumalam.github.io/Responsive-resume/</a></li>
+                    <li>Demonstrates CSS positioning, JavaScript DOM manipulation, and cross-device layout skills.</li>
+                </ul>
+            </div>
+
+            <div class="project-item">
+                <div class="project-header">
+                    <h4>Mini Projects (6+)</h4>
+                    <span class="tag">2023–2025</span>
+                </div>
+                <div class="project-tech"><i class="fas fa-puzzle-piece"></i> JavaScript · HTML · CSS · Python</div>
+                <ul>
+                    <li>Slot machine, calculator, hangman, quiz engine (JSON), math challenge, madlib generator, multiplayer dice game.</li>
+                    <li>Demonstrates DOM manipulation, OOP, and Python logic.</li>
+                </ul>
+            </div>
+
+                        <!-- ===== CREATIVE & ACADEMIC COURSEWORK ===== -->
+            <h2 class="section-title"><i class="fas fa-university"></i> Creative &amp; Academic Coursework</h2>
+
+            <!-- Graphics (3-Seasons) -->
+            <div class="project-item">
+                <div class="project-header">
+                    <h4>Interactive 3-Seasons Visualization</h4>
+                    <span class="tag gold">OpenGL / C++</span>
+                </div>
+                <div class="project-tech"><i class="fas fa-paint-brush"></i> Collaborative Project</div>
+                <ul>
+                    <li>Visualized 3 seasons with <strong>smooth transitions</strong> and an interactive <span class="highlight-coral">snowfall particle system</span> with speed control.</li>
+                    <li>Implemented <strong>smooth seasonal transitions</strong> and interactive controls — <span class="highlight-coral">snowfall particle system</span> with stop/increase/decrease speed.</li>
+                </ul>
+            </div>
+
+            <!-- ATM_341 Assembly -->
+            <div class="project-item">
+                <div class="project-header">
+                    <h4>ATM_341 — Virtual ATM System</h4>
+                    <span class="tag purple">Assembly · emu8086</span>
+                </div>
+                <div class="project-tech"><i class="fas fa-microchip"></i> Collaborative Project</div>
+                <ul>
+                    <li><strong>Multi-user login</strong>, withdrawal/deposit/transfer logic, daily limits, and admin functions (unlock, reset, replenish).</li>
+                    <li>Built-in <strong>low-cash alert</strong> comparing withdrawal requests against ATM capacity.</li>
+                </ul>
+            </div>
+
+            <!-- ===== EXTRACURRICULAR & LEADERSHIP ===== -->
+            <h2 class="section-title"><i class="fas fa-users"></i> Extracurricular &amp; Leadership</h2>
+            <div class="two-col-grid">
+                <div class="info-card">
+                    <h4><i class="fas fa-laptop-code"></i> Senior Executive</h4>
+                    <div class="meta">BRAC University Computer Club · 2024 – 2026</div>
+                    <ul>
+                        <li>Helped organise multiple technical events and workshops.</li>
+                        <li>Mentored junior members in programming and project work.</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h4><i class="fas fa-handshake"></i> Director</h4>
+                    <div class="meta">Peace Café BRACU · 2024 – 2026</div>
+                    <ul>
+                        <li>Led team operations, event coordination, and member management.</li>
+                        <li>Fostered a culture of dialogue and community engagement.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ===== PROFESSIONAL DEVELOPMENT ===== -->
+            <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Professional Development</h2>
+            <div class="two-col-grid">
+                <div class="info-card">
+                    <h4><i class="fas fa-globe-asia"></i> GCI World 2026 April</h4>
+                    <div class="meta">Matsuo-Iwasawa Laboratory, University of Tokyo · In Progress</div>
+                    <ul>
+                        <li>Selected for prestigious online data science and AI research training program.</li>
+                        <li>Deepening ML research under world-class mentorship.</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h4><i class="fab fa-aws"></i> AWS Educate</h4>
+                    <div class="meta">Introducing Generative AI with AWS · Completed 2025</div>
+                    <ul>
+                        <li>Foundational certification in Generative AI concepts and AWS services.</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h4><i class="fas fa-chalkboard-teacher"></i> Seminars &amp; Workshops</h4>
+                    <div class="meta">Various · 2024–2025</div>
+                    <ul>
+                        <li>Actively participated in tech seminars, hackathons, and university-led workshops on AI, Web Dev, and Software Engineering.</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h4><i class="fas fa-tools"></i> Tools &amp; Workflow</h4>
+                    <div class="meta">Daily-use technical stack</div>
+                    <ul>
+                        <li>Git, GitHub, VS Code, Jupyter Notebook, Figma, Canva, LaTeX</li>
+                        <li><strong>AI-augmented workflow:</strong> GitHub Copilot, Claude, DeepSeek</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ===== AWARDS & CERTIFICATES ===== -->
+            <h2 class="section-title"><i class="fas fa-trophy"></i> Awards &amp; Certificates</h2>
+            <div class="two-col-grid">
+                <div class="info-card">
+                    <h4><i class="fas fa-medal"></i> Duke of Edinburgh</h4>
+                    <div class="meta">Bronze Award · 2024</div>
+                </div>
+                <div class="info-card">
+                    <h4><i class="fas fa-brain"></i> Data Wizard</h4>
+                    <div class="meta">Intrahactive 1.0 @ BRACU · 2024</div>
+                </div>
+                <div class="info-card">
+                    <h4><i class="fas fa-chart-line"></i> Battle of Insight</h4>
+                    <div class="meta">Data-Solution 360 · 2024</div>
+                </div>
+                <div class="info-card">
+                    <h4><i class="fas fa-pencil-alt"></i> Runner-up</h4>
+                    <div class="meta">Sudoku &amp; Creative Writing Competition</div>
+                </div>
+                <div class="info-card">
+                    <h4><i class="fas fa-fist-raised"></i> Karate</h4>
+                    <div class="meta">Shotokan 7th Kyu</div>
+                </div>
+                <div class="info-card">
+                    <h4><i class="fas fa-rocket"></i> Agent X Program</h4>
+                    <div class="meta">2025</div>
+                </div>
+            </div>
+
+            <!-- ===== HOBBIES / INTERESTS ===== -->
+            <h2 class="section-title"><i class="fas fa-heart"></i> Hobbies &amp; Interests</h2>
+            <div class="hobby-tags">
+                <span><i class="fas fa-video"></i> Video Editing (Learning)</span>
+                <span><i class="fas fa-paint-brush"></i> Visual Graphics</span>
+                <span><i class="fas fa-puzzle-piece"></i> Problem-Solving</span>
+                <span><i class="fas fa-fist-raised"></i> Karate (Shotokan 7th Kyu)</span>
+               
+            </div>
+
+            <!-- ===== FOOTER SPACER ===== -->
+            <div style="height: 20px;"></div>
+
         </section>
+
     </main>
-</body>
 
+</body>
 </html>
