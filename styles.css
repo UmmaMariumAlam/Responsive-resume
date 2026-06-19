@@ -223,7 +223,7 @@ body{
 }
 
 
-/*lastly contact*/
+/*lastly contact
 .contact__input {
     width: 100%;
     font-size: var(--normal-font-size);
@@ -242,6 +242,7 @@ body{
     cursor: pointer;
     margin-left: auto;
   }
+*/
 
 /***Responsive Design ***/
 @media(max-width:768px)
