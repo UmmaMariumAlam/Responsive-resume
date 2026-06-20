@@ -1,0 +1,149 @@
+\documentclass[11pt,a4paper]{article}
+
+% Packages for colors, fonts, icons, and layout
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=1.5cm]{geometry}
+\usepackage{xcolor}
+\usepackage{fontawesome5}
+\usepackage{titlesec}
+\usepackage[most]{tcolorbox}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{hyperref}
+
+% Define your HTML colors
+\definecolor{navy}{HTML}{0D1B2A}
+\definecolor{navy2}{HTML}{162236}
+\definecolor{coral}{HTML}{FF6B6B}
+\definecolor{coral2}{HTML}{FF8E8E}
+\definecolor{white}{HTML}{F4F7FA}
+\definecolor{muted}{HTML}{8BA0B8}
+\definecolor{green}{HTML}{4ECDC4}
+\definecolor{gold}{HTML}{FFD166}
+
+% Set page background to Navy
+\pagecolor{navy}
+\color{white}
+
+% Custom Section Headings (like your HTML)
+\titleformat{\section}
+  {\color{coral}\Large\bfseries\sffamily}
+  {}{0em}
+  {}[\titlerule]
+\titlespacing*{\section}{0pt}{12pt}{8pt}
+
+% Custom Subsection
+\titleformat{\subsection}
+  {\color{white}\bfseries\sffamily}
+  {}{0em}
+  {}
+\titlespacing*{\subsection}{0pt}{8pt}{4pt}
+
+% Document starts
+\begin{document}
+
+% HEADER
+\begin{center}
+    {\color{white}\Huge\bfseries\sffamily Umma Marium Alam} \\[4pt]
+    {\color{coral}\rule{0.4\textwidth}{1pt}} \\[6pt]
+    {\color{muted}\large
+        \faEnvelope\ \href{mailto:mariumalam999@gmail.com}{mariumalam999@gmail.com} \quad
+        \textbullet \quad
+        \faGithub\ \href{https://github.com/UmmaMariumAlam}{GitHub} \quad
+        \textbullet \quad
+        \faLinkedin\ \href{https://linkedin.com/in/umma-marium-alam}{LinkedIn} \quad
+        \textbullet \quad
+        \faPhone\ +880 16023506605
+    }
+\end{center}
+
+\vspace{6pt}
+
+% ABOUT
+\section{About}
+\begin{tcolorbox}[colback=navy2, coltext=white, colframe=coral, borderline west={4pt}{0pt}{coral}, arc=2mm, boxrule=0.5pt, left=8pt, right=8pt, top=7pt, bottom=7pt]
+    Final-year CSE student at BRAC University (CGPA: 3.71/4.00) with production-grade web development experience, state-of-the-art ML thesis research, and peer mentoring. Currently deepening ML research through GCI World 2026 April program (Matsuo Lab, University of Tokyo). I build and research.
+\end{tcolorbox}
+
+% SKILLS
+\section{Skills}
+\vspace{-4pt}
+\begin{tabularx}{\textwidth}{X X X}
+    \textcolor{coral}{\textbf{Web \& App Dev}} & \textcolor{green}{\textbf{ML \& AI Research}} \\
+    React, Laravel, MERN, PHP & Diffusion, CV, Scikit-learn 
+\end{tabularx}
+
+\vspace{8pt}
+\textbf{\textcolor{muted}{Tech Stack:}} 
+\textcolor{coral2}{React} \textbullet{} \textcolor{coral2}{Node.js} \textbullet{} \textcolor{coral2}{Laravel} \textbullet{} 
+\textcolor{green}{Python} \textbullet{} \textcolor{green}{TensorFlow} \textbullet{} 
+\textcolor{white}{MongoDB} \textbullet{} \textcolor{white}{MySQL}
+
+% THESIS
+\section{Research}
+\begin{tcolorbox}[colback=navy2,coltext=white, colframe=coral, borderline west={4pt}{0pt}{coral}, sharp corners, boxrule=0pt]
+    \textcolor{coral}{\textbf{Defended Thesis (2025)}} \\
+    {\large \textbf{Fast-DDIM VTON: Multi-View Diffusion-Based Virtual Try-On}} \\
+    Proposed a novel framework combining Adaptive Cross-Pose Attention, Partial Multi-View Learning, Pose-Adaptive Noise Scheduling, Region-Aware Diffusion, and accelerated DDIM sampling. First system for culturally specific garments—introduced the BTD dataset.
+    
+    \vspace{6pt}
+    \textcolor{coral}{SSIM 0.8834 $\uparrow$} \hspace{8pt}
+    \textcolor{green}{LPIPS 0.0987 $\downarrow$} \hspace{8pt}
+    \textcolor{gold}{FID 3.8465 $\downarrow$} \hspace{8pt}
+    \textcolor{white}{KID 4.1375 $\downarrow$}
+\end{tcolorbox}
+
+% PROJECTS
+\section{ML Projects}
+
+\subsection*{\textcolor{green}{Stroke Risk Prediction} \hfill \textcolor{muted}{2025}}
+\textcolor{muted}{Python, Scikit-learn, TensorFlow • 4,000+ patients}
+\begin{itemize}[leftmargin=*, label=\textcolor{coral}{\textendash}]
+    \item Logistic Regression: \textbf{95.2\% accuracy / AUC 0.842}
+    \item Analysed class imbalance trade-offs across Accuracy, F1, and AUC-ROC.
+\end{itemize}
+
+\subsection*{\textcolor{green}{California Housing Price Prediction} \hfill \textcolor{muted}{2025}}
+\textcolor{muted}{Python, Scikit-learn, Jupyter}
+\begin{itemize}[leftmargin=*, label=\textcolor{coral}{\textendash}]
+    \item Linear R² 0.654 $\rightarrow$ Random Forest R² \textbf{0.767} (+17\%)
+    \item Feature engineering and Grid Search hyperparameter tuning.
+\end{itemize}
+
+\section{Web Projects}
+
+\subsection*{\textcolor{coral}{Notes App (MERN)} \hfill \textcolor{muted}{2025}}
+React, Node.js, Express, MongoDB
+\begin{itemize}[leftmargin=*, label=\textcolor{coral}{\textendash}]
+    \item Full-stack CRUD with React frontend and Express REST API.
+    \item Component-based architecture with real-time state updates.
+\end{itemize}
+
+\subsection*{\textcolor{coral}{Handy Laundry} \hfill \textcolor{muted}{2025}}
+Laravel, PHP, MySQL
+\begin{itemize}[leftmargin=*, label=\textcolor{coral}{\textendash}]
+    \item End-to-end booking system with admin dashboard.
+    \item Role-based access control (customer/staff/admin).
+\end{itemize}
+
+% EDUCATION
+\section{Education}
+
+\subsection*{B.Sc. Computer Science \& Engineering \hfill \textcolor{gold}{CGPA: 3.71/4.00}}
+BRAC University, Dhaka \hfill Sept 2022 -- Present
+\begin{itemize}[leftmargin=*, label=\textcolor{coral}{\textendash}]
+    \item Coursework: ML, Computer Vision, Data Structures, Algorithms.
+\end{itemize}
+
+\subsection*{HSC \& SSC (Science) \hfill \textcolor{gold}{GPA: 5.00/5.00}}
+BNMPC \hfill 2019 -- 2021
+
+% LEADERSHIP
+\section{Leadership}
+\begin{itemize}[leftmargin=*, label=\textcolor{coral}{\textendash}]
+    \item \textbf{Senior Executive, BRACU Computer Club} (2024-2026): Mentored junior members in programming and project work.
+    \item \textbf{Director, Peace Café BRACU} (2024-2026): Led team operations and event coordination.
+\end{itemize}
+
+\end{document}
